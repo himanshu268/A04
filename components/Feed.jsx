@@ -34,7 +34,16 @@ const Feed = () => {
   };
 
   useEffect(() => {
+    // Fetch all posts initially
     fetchPosts();
+
+    // Fetch posts every 1 second (1000 ms)
+    const interval = setInterval(() => {
+      fetchPosts();
+    }, 1000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   const filterPrompts = (searchtext) => {
@@ -67,18 +76,7 @@ const Feed = () => {
     setSearchedResults(searchResult);
   };
 
-  useEffect(() => {
-    // Fetch all posts initially
-    fetchPosts();
-
-    // Fetch posts every 1 second (1000 ms)
-    const interval = setInterval(() => {
-      fetchPosts();
-    }, 1000);
-
-    // Clean up interval on component unmount
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array ensures useEffect runs only on mount
+ // Empty dependency array ensures useEffect runs only on mount
 
 
   return (
