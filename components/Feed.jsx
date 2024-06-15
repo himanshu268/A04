@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
 import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick }) => {
@@ -37,8 +36,8 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
-  const filterPrompts = (searchtext) => {
-    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+  const filterPrompts = (searchText) => {
+    const regex = new RegExp(searchText, "i"); // 'i' flag for case-insensitive search
     return allPosts.filter(
       (item) =>
         regex.test(item.creator.username) ||
@@ -67,6 +66,12 @@ const Feed = () => {
     setSearchedResults(searchResult);
   };
 
+  const handleRefreshClick = () => {
+    setSearchText("");
+    setSearchedResults([]);
+    fetchPosts();
+  };
+
   return (
     <section className='feed'>
       <form className='relative w-full flex-center'>
@@ -78,6 +83,13 @@ const Feed = () => {
           required
           className='search_input peer'
         />
+        <button 
+          type="button"
+          onClick={handleRefreshClick}
+          className='refresh_button'
+        >
+          Refresh
+        </button>
       </form>
 
       {/* All Prompts */}
