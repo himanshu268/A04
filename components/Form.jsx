@@ -4,7 +4,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
-        <span className='blue_gradient'>share your ideas,thoughts,emotion and many more</span>
+        <span className='blue_gradient'>Share your ideas,thoughts,emotion and many more</span>
       </h1>
 
       <form
@@ -13,7 +13,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your Prompt
+            Your Words
           </span>
 
           <textarea
@@ -27,7 +27,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Field of Prompt{" "}
+            Hash Tags{" "}
             <span className='font-normal'>
               (#story ,#gupsup,#darksecret, etc.)
             </span>
